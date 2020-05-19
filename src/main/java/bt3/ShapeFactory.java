@@ -2,25 +2,22 @@
 package bt3;
 
 public class ShapeFactory {
-    private static ShapeFactory singleton;
-    public Shape createShape(ShapeType shapeType){
-        switch(shapeType){
-            case circle:
-                return new Circle();
-            case triangle:
-                return new Triangle();
-            case rectangle:
-                return new Rectangle();
+    private static Shape shape;
+    
+    public static Shape createShape(ShapeType shapeType){
+        if(shape == null){
+            switch (shapeType) {
+                case circle:
+                    shape = new Circle();
+                    break;
+                case rectangle:
+                    shape = new Rectangle();
+                    break;
+                case triangle:
+                    shape = new Triangle();
+                    break;
+            }
         }
-        return null;
-    }
-
-    public ShapeFactory() {
-    }
-    public static ShapeFactory createInstance()
-    {
-        if(singleton == null)
-            singleton = new ShapeFactory();
-        return singleton;
+        return shape;
     }
 }
