@@ -11,6 +11,7 @@ public class main3 {
         
         s2.createShape(ShapeType.rectangle);
         System.out.println(s1.createShape(ShapeType.circle).draw());
+        System.out.println(s2.createShape(ShapeType.rectangle).draw());
     }
     
 }
